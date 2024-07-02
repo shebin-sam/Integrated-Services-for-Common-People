@@ -5,10 +5,14 @@ Pre Requesite
 
 ### Install Django
 
-``` pip install django ```
+```
+pip install django
+ ```
 
 ### Make the database migrate
-``` cd integratedservices ```
+``` 
+cd integratedservices
+```
 ```
 python manage.py makemigrations
 python manage.py migrate

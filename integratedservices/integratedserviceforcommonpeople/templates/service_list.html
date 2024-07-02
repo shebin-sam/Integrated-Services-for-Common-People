@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Service List{% endblock %}
+
+{% block content %}
+    <div class="services-container">
+        <div class="service-type-buttons text-center">
+            {% for code, name in service_types %}
+                <a href="?service_type={{ code }}" class="btn btn-primary">{{ name }}</a>
+            {% endfor %}
+        </div>
+        <div class="services-list">
+            {% for service in services %}
+                <div class="service">
+                    <h5>{{ service.name }}</h5>
+                    <p>Location: {{ service.location }}</p>
+                    <p>Type: {{ service.get_service_type_display }}</p>
+                    <p>Mobile: {{ service.mobile_number }}</p>
+                    <p>Email: {{ service.email }}</p>
+                    <p>WhatsApp: {{ service.whatsapp_number }}</p>
+                    {% if service.address %}
+                        <p>Address: {{ service.address }}</p>
+                    {% endif %}
+                    {% if service.website %}
+                        <a href="{{ service.website }}" class="btn btn-info mt-2" target="_blank">Visit Website</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
